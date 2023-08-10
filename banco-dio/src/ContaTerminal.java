@@ -2,11 +2,9 @@ import java.util.Scanner;
 
 public class ContaTerminal {
 
-    private static Conta cadastrarConta(Scanner in){
+    private static void cadastrarConta(Scanner in){
 
         Conta novaConta = new Conta();
-
-            try {
 
                 System.out.printf("\n Por favor, digite  o número da conta: ");
                 novaConta.setNumeroConta(in.nextInt());
@@ -22,12 +20,6 @@ public class ContaTerminal {
                 System.out.printf("\n Por favor, digite o valor do depósito inicial: ");
                 novaConta.setSaldo(in.nextBigDecimal());
                 
-             } catch (Exception e) {
-                System.out.println(e.getMessage());
-                return null;
-             }
-
-
         System.out.println("\nOlá " + novaConta.getNomeCliente()
                              +", obrigado por criar uma conta em nosso banco, sua agência é "+ novaConta.getAgencia() 
                              +", conta "+novaConta.getNumeroConta()
@@ -35,7 +27,6 @@ public class ContaTerminal {
                              +" já está disponível para saque."
                            );
 
-        return novaConta;
     }
 
 
@@ -58,8 +49,8 @@ public class ContaTerminal {
 
              switch(opcaoMenu){
                 case 1:
-                  cadastrarConta(in);
-                  break;
+                 cadastrarConta(in);
+                 break;
                 default:
                   continuar = false;                
              }      
